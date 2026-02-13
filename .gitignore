@@ -1,0 +1,3 @@
+#Adding to ignore the virtual environment I created
+.venv
+**/*.pyc
