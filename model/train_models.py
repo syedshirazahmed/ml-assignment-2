@@ -54,22 +54,20 @@ def load_dataset(csv_path: Optional[Union[Path, str]] = None) -> tuple[pd.DataFr
     # Read raw CSV
     df = pd.read_csv(path)
 
+    instances_in_dataset = df.shape[0]
+
     # Basic checks
     if "target" not in df.columns:
         raise ValueError('CSV must contain a "target" column.')
 
-    # --- Simple preprocessing / cleaning ---
-    # 1) Drop duplicate rows (if any)
-    df = df.drop_duplicates().reset_index(drop=True)
-
-    # 2) Fill missing numeric values with the column median
+    # 1) Fill missing numeric values with the column median
     #    (this is a simple and common way to handle missing values)
     df = df.fillna(df.median(numeric_only=True))
 
     # Split into features (X) and target (y)
     y = df["target"].copy()
     X = df.drop(columns=["target"])
-    return X, y
+    return X, y, instances_in_dataset
 
 
 def split_dataset(
