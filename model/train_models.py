@@ -54,6 +54,8 @@ def load_dataset(csv_path: Optional[Union[Path, str]] = None) -> tuple[pd.DataFr
     # Read raw CSV
     df = pd.read_csv(path)
 
+    instances_in_dataset = df.shape[0]
+
     # Basic checks
     if "target" not in df.columns:
         raise ValueError('CSV must contain a "target" column.')
@@ -69,7 +71,7 @@ def load_dataset(csv_path: Optional[Union[Path, str]] = None) -> tuple[pd.DataFr
     # Split into features (X) and target (y)
     y = df["target"].copy()
     X = df.drop(columns=["target"])
-    return X, y
+    return X, y, instances_in_dataset
 
 
 def split_dataset(
