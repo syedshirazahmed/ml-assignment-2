@@ -1,10 +1,20 @@
-# Heart Disease Classification: Machine Learning Model Comparison
+# ML Assignment 2
+## Heart Disease Classification: Machine Learning Model Comparison
 
-**Created by:** Syed Shiraz Ahmed
+## Submitted By
+- **Name:** Syed Shiraz Ahmed
+- **BITS ID:** 2025AA05443
 
----
+## 1. Github Repository Link
+https://github.com/syedshirazahmed/ml-assignment-2
 
-## a. Problem Statement
+## 2. Live Streamlit App Link
+https://ml-assignment-2-syedshirazahmed.streamlit.app/
+
+## 3. Screenshot of BITS Lab
+
+## 4. Github README Content
+### a. Problem Statement
 
 The objective of this project is to develop and compare multiple machine learning classification models to predict the presence of heart disease in patients based on clinical features. The problem is formulated as a binary classification task where:
 
@@ -19,12 +29,12 @@ The project aims to:
 
 ---
 
-## b. Dataset Description
+### b. Dataset Description
 
 **Dataset:** Heart Disease Dataset  
 **Source:** `https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset`
 
-### Dataset Characteristics
+#### Dataset Characteristics
 
 - **Type:** Binary Classification
 - **Total Instances:** 1,025
@@ -32,7 +42,7 @@ The project aims to:
 - **Target Variable:** Presence (1) or absence (0) of heart disease
 - **Class Distribution:** Balanced dataset with both classes well-represented
 
-### Features Description
+#### Features Description
 
 The dataset contains the following 13 clinical features:
 
@@ -52,7 +62,7 @@ The dataset contains the following 13 clinical features:
 | `ca` | Number of major vessels colored by fluoroscopy (0-3) | Numeric |
 | `thal` | Thalassemia (1 = normal, 2 = fixed defect, 3 = reversible defect) | Categorical |
 
-### Further Notes
+#### Further Notes
 
 - **Critical Metric:** Recall is chosen as the critical metric because, as in the context of heart disease prediction, it is crucial to identify as many positive cases as possible. 
 Missing a potential heart disease case (false negative) could have severe consequences.
@@ -61,33 +71,33 @@ Missing a potential heart disease case (false negative) could have severe conseq
 
 ---
 
-## c. Models Used
+### c. Models Used
 
 Six classification algorithms are implemented and evaluated:
 
-### 1. Logistic Regression
+#### 1. Logistic Regression
 A linear model for binary classification using the logistic function. Simple, interpretable, and works well for linearly separable data.
 
-### 2. Decision Tree
+#### 2. Decision Tree
 A tree-based model that splits data based on feature thresholds. Captures non-linear relationships and provides interpretable decision rules.
 
-### 3. k-Nearest Neighbors (kNN)
+#### 3. k-Nearest Neighbors (kNN)
 An instance-based learning algorithm that classifies based on the majority class of k nearest neighbors. Non-parametric and effective for local patterns.
 
-### 4. Naive Bayes
+#### 4. Naive Bayes
 A probabilistic classifier based on Bayes' theorem with strong independence assumptions. Fast and works well with limited training data.
 
-### 5. Random Forest (Ensemble)
+#### 5. Random Forest (Ensemble)
 An ensemble of decision trees using bagging. Reduces overfitting and improves generalization through majority voting.
 
-### 6. XGBoost (Ensemble)
+#### 6. XGBoost (Ensemble)
 An advanced gradient boosting algorithm. Builds trees sequentially to correct errors of previous trees, often achieving state-of-the-art performance.
 
 ---
 
-## Model Performance Comparison
+### Model Performance Comparison
 
-### Evaluation Metrics Table
+#### Evaluation Metrics Table
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---------------|----------|-----|-----------|--------|----|----|
@@ -102,7 +112,7 @@ An advanced gradient boosting algorithm. Builds trees sequentially to correct er
 
 ---
 
-## Model Performance Observations
+### Model Performance Observations
 
 | ML Model Name | Observation about model performance |
 |---------------|-------------------------------------|
@@ -115,7 +125,7 @@ An advanced gradient boosting algorithm. Builds trees sequentially to correct er
 
 ---
 
-## Key Findings
+### Key Findings
 
 1. **Random Forest: Perfect Recall (1.0) - Zero Missed Cases:** Random Forest achieved perfect recall, detecting 100% of heart disease cases with zero false negatives. This is the most critical metric for patient safety, ensuring no patient goes undiagnosed. Combined with perfect precision, it represents the ideal model for clinical deployment.
 
@@ -124,30 +134,5 @@ An advanced gradient boosting algorithm. Builds trees sequentially to correct er
 3. **Recall as Primary Discriminator:** When ranked by recall - the most important metric for heart disease detection - the hierarchy is found to be as follows:
 ***Random Forest (1.0) > Decision Tree/XGBoost (0.9714) > Logistic Regression (0.9143) > Naive Bayes (0.8762) > kNN (0.8571).***
 This ranking directly reflects clinical safety.
-
----
-
-## Web Application
-
-An interactive **Streamlit web application** has been developed to demonstrate the models:
-
-### Features:
-- **Dataset Overview:** View dataset statistics, sample data, and class distribution
-- **Metric Comparison:** Compare all six models using visualization and tabular data
-- **Model Analysis:** Deep dive into individual model performance with confusion matrices
-- **Predictions:** Upload custom CSV files to generate predictions using any selected model
-- **Sample Data:** Download sample test data for making predictions
-
-### Running the Application Locally
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the Streamlit app
-streamlit run app.py
-```
-
-The application will open in your browser at `http://localhost:8501`
 
 ---
